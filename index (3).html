@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body><h1>Game On!</h1>
+    <div class="yungContent">
+    
+        <div class="rsp1">
+            <p class="p1">Player 1</p>
+            <img class="img1" src="images/rsp1.jpg">
+        </div>
+
+        <div class="rsp2">
+            <p class="p2">Player 2</p>
+            <img class="img1" src="images/rsp1.jpg">
+        </div>
+
+        <div class="click-me">
+            <button onCLick="window.location.reload();">Click Me</button>
+        </div>
+    </div>
+<script>
+// Step 1: Randomize the Images
+var randomPicture1 = Math.floor(Math.random() *3) +1;
+console.log(randomPicture1);
+// Step 2: Create a variable called "randomImage"
+var randomImage = "rsp" + randomPicture1 + ".jpg"
+console.log(randomImage);
+// Step 3: Add the source value of the Images
+var randomImageSource = "images/" + randomImage; //Destination Folder
+console.log(randomImageSource);
+// Step 4: Image Path Dom Manipulation
+var image1 = document.querySelectorAll("img")[0];
+// Step 5: Changing Image Attributes
+image1.setAttribute('src', randomImageSource);
+
+// ----------------------------------------------
+// Step 1: Randomize the Images
+var randomPicture2 = Math.floor(Math.random() *3) +1;
+console.log(randomPicture2);
+// Step 2: Create a variable called "randomImage"
+var randomImage2 = "rsp" + randomPicture2 + ".jpg"
+console.log(randomImage2);
+// Step 3: Add the source value of the Images
+var randomImageSource2 = "images/" + randomImage2; //Destination Folder
+console.log(randomImageSource2);
+// Step 4: Image Path Dom Manipulation
+var image2 = document.querySelectorAll("img")[1];
+// Step 5: Changing Image Attributes
+image2.setAttribute('src', randomImageSource2);
+
+
+var rock = "rsp1.jpg";
+var paper = "rsp2.jpg";
+var scissor = "rsp3.jpg";
+// Winner
+// If rock Wins,
+if (randomImage === rock && randomImage2 === scissor) {
+    document.querySelector("h1").innerHTML = "Rock Wins!";
+    document.querySelector(".p1").innerHTML = "Player 1 Wins! &#9989" ;
+} else if (randomImage === scissor && randomImage2 === rock) {
+    document.querySelector("h1").innerHTML = "Rock Wins!";
+    document.querySelector(".p2").innerHTML = "Player 2 Wins! &#9989";
+}
+
+else if (randomImage === scissor && randomImage2 === paper) {
+    document.querySelector("h1").innerHTML = "Scissor Wins!";
+    document.querySelector(".p1").innerHTML = "Player 1 Wins! &#9989";
+} else if (randomImage === paper && randomImage2 === scissor) {
+    document.querySelector("h1").innerHTML = "Scissor Wins!";
+    document.querySelector(".p2").innerHTML = "Player 2 Wins! &#9989";
+}
+
+else if (randomImage === paper && randomImage2 === rock) {
+    document.querySelector("h1").innerHTML = "Paper Wins!";
+    document.querySelector(".p1").innerHTML = "Player 1 Wins! &#9989";
+} else if (randomImage === rock && randomImage2 === paper) {
+    document.querySelector("h1").innerHTML = "Paper Wins!";
+    document.querySelector(".p2").innerHTML = "Player 2 Wins! &#9989";
+}
+// Draw
+else if (randomImage === rock && randomImage2 === rock) {
+    document.querySelector("h1").innerHTML = "Draw!";
+}
+else if (randomImage === paper && randomImage2 === paper) {
+    document.querySelector("h1").innerHTML = "Draw!";
+}
+else if (randomImage === scissor && randomImage2 === scissor) {
+    document.querySelector("h1").innerHTML = "Draw!";
+    }
+</script>
+
+</body>
+</html>
